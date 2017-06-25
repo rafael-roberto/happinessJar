@@ -1,0 +1,27 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.rafaelRoberto.happinessJar"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "br.com.rafaelRoberto.happinessJar"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.rafaelRoberto.happinessJar"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "br.com.rafaelRoberto.happinessJar"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.rafaelRoberto.happinessJar"
+        }
+    },
+    "dependent_plugins": {}
+}

@@ -1,0 +1,65 @@
+
+<div class="row" ng-init="load()">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/jarOfHappiness.jpg">
+                <span class="card-title activator">Jarro de Felicidades<i class="material-icons right">&#xE5D4;</i></span>
+            </div>
+            <div class="card-reveal">
+                <happiness-menu></happiness-menu>
+            </div>
+            <div class="card-action">
+                <form id="form-happinessCreate" class="left-align">
+                    <div class="input-field">
+                        <i class="material-icons prefix">&#xE86E;</i>
+                        <select required id="select-happinessCategorias"></select>
+                    </div>
+                    <div class="input-field">
+                        <i class="material-icons prefix">&#xE873;</i>
+                        <textarea required id="input-happinessNotas" maxlength="256" class="materialize-textarea" row="4"></textarea>
+                    </div>
+                    <a class="waves-effect waves-light btn btn-full deep-purple lighten-3" onclick="createNotas()"><i class="material-icons left">&#xE161;</i>Salvar</a>
+                </form>
+                <div id="loading-happinessCreate" class="preloader-wrapper big active hide">
+                    <div class="spinner-layer spinner-blue">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                    <div class="spinner-layer spinner-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                    <div class="spinner-layer spinner-yellow">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                    <div class="spinner-layer spinner-green">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+body {
+    background-color: #d1c4e9;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.card {
+    margin: 2rem 1rem;
+}
+
+.card .card-image .card-title {
+    display: block;
+    width: 100%;
+}
+
+.card .card-title i {
+    margin-top: 7px;
+}
+
+textarea.materialize-textarea {
+    padding: 0;
+    min-height: 2rem;
+}
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    height: 2rem;
+}
+
+.modal.bottom-sheet {
+    max-height: initial;
+}
+
+.card-action {
+    width: 100%;
+    text-align: center!important;
+}
+
+h4 {
+    margin: 1.14rem 0 2rem 0;
+}

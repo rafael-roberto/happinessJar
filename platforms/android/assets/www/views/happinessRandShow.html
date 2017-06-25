@@ -1,0 +1,73 @@
+
+<div class="row">
+    <div class="col s12 m7">
+        <div class="card">
+            <div class="card-image">
+                <img src="img/jarOfHappiness.jpg">
+                <span class="card-title activator">Jarro de Felicidades<i class="material-icons right">&#xE5D4;</i></span>
+            </div>
+            <div class="card-reveal">
+                <happiness-menu></happiness-menu>
+            </div>
+            <div class="card-action">
+                <div id="show-happinessRandShow" class="left-align">
+                    <div class="input-field">
+                        <i class="material-icons left">&#xE86E;</i>
+                        <span id="show-happinessCategorias"></span>
+                    </div>
+                    <div class="input-field row">
+                        <i class="material-icons left">&#xE873;</i>
+                        <span id="show-happinessNotas"></span>
+                    </div>
+                    <div class="row">
+                        <a class="waves-effect waves-light btn btn-full" onclick="reloadRandHappiness();"><i class="material-icons left">&#xE8D0;</i>Ver uma Outra Felicidade</a>
+                    </div>
+                </div>
+                <div id="loading-happinessRandShow" class="preloader-wrapper big active hide">
+                    <div class="spinner-layer spinner-blue">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                    <div class="spinner-layer spinner-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                    <div class="spinner-layer spinner-yellow">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                    <div class="spinner-layer spinner-green">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    angular.element(document).ready(function () {
+        reloadRandHappiness();
+    });
+</script>
