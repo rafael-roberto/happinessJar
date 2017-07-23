@@ -10,12 +10,8 @@ var happinessCategorias = {};
 
 function onDeviceReady(){
     gravarLog('Aplicação iniciada');
-    /*window.sqlitePlugin.selfTest(function() {
-      console.log('SELF test OK');
-  });*/
     var domElement = document.getElementById('appHTML');
     angular.bootstrap(domElement, ["happinessJar"]);
-    db.transaction(populateDomains, errorHandler, loadCategorias);
 }
 
 

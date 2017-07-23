@@ -4,10 +4,6 @@
 
 happinessJar.controller("happinessController", function($scope, $routeParams, $cordovaSQLite, $log, $location) {
 
-    $scope.load = function() {
-      loadCategorias();
-    }
-
     /*$scope.categorias = {};
 
     angular.element(document).ready(function () {

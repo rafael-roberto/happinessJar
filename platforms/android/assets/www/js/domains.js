@@ -2,7 +2,7 @@
  * Created by Rafael Roberto on 02/07/2016.
  */
 
-function populateDomains(tx) {
+/*function populateDomains(tx) {
 
     //tx.executeSql('DROP TABLE IF EXISTS happinessCategorias');
     //tx.executeSql('DROP TABLE IF EXISTS happinessNotas');
@@ -35,13 +35,13 @@ function populateDomains(tx) {
         'nota TEXT NOT NULL UNIQUE);'
     );
 
-    /*tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (1,date("now"), "1")');
+    tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (1,date("now"), "1")');
     tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (1,date("now"), "2")');
     tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (1,date("now"), "3")');
     tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (1,date("now"), "4")');
     tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (2,date("now"), "5")');
     tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (2,date("now"), "6")');
-    tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (3,date("now"), "7")');*/
+    tx.executeSql('INSERT OR REPLACE INTO happinessNotas (idCategoria, dataModificado, nota) VALUES (3,date("now"), "7")');
 
     gravarLog('Criado tabela de Anotações de Felicidade');
 
@@ -58,10 +58,10 @@ function loadCategorias(){
     },function(error){
         errorHandler(error);
     })});
-}
+}*/
 
 function showRandHappiness(){
-    db.transaction(function(tx) {tx.executeSql('SELECT count(*) AS thecount FROM happinessNotas;',[],function(tx,results){
+    /*db.transaction(function(tx) {tx.executeSql('SELECT count(*) AS thecount FROM happinessNotas;',[],function(tx,results){
         var randomNum = Math.floor(Math.random() * results.rows.item(0).thecount) + 1;
         db.transaction(function(tx) {tx.executeSql('SELECT idNota FROM happinessNotas WHERE idNota NOT IN (SELECT idNota FROM happinessNotas LIMIT '+(randomNum - 1)+') LIMIT 1',[],function(tx,results){
             db.transaction(function(tx) {tx.executeSql('SELECT b.categoria, a.nota FROM happinessNotas AS a JOIN happinessCategorias AS b ON a.idCategoria=b.idCategoria WHERE idNota =?',[results.rows.item(0).idNota],function(tx,results){
@@ -69,7 +69,18 @@ function showRandHappiness(){
                 $("#show-happinessNotas").text(results.rows.item(0).nota);
             },errorHandler)});
         },errorHandler)});
-    },errorHandler)})
+    },errorHandler)})*/
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var json = JSON.parse(this.responseText);
+            $("#show-happinessNotas").text(json[0].felicidade);
+        } else {
+            errorHandler(error)
+        }
+    };
+    xhttp.open("GET", "http://rafaelroberto.com.br/hjAPI/random.php", true);
+    xhttp.send();
 }
 
 function reloadRandHappiness(){
@@ -89,9 +100,30 @@ function createNotas(){
     $("#form-happinessCreate").addClass('hide');
     $("#loading-happinessCreate").removeClass('hide');
     var dataAtual = new Date(); //pega a data atual
-    idCategoria = $("#select-happinessCategorias option:selected").val();
+    //idCategoria = $("#select-happinessCategorias option:selected").val();
     nota = $("#input-happinessNotas").val();
-    setTimeout(
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            $("#form-happinessCreate").removeClass('hide');
+            $("div.card-action").removeClass('center-align');
+            $("#loading-happinessCreate").addClass('hide');
+            $("#input-happinessNotas").val('');
+            Materialize.toast('Felicidade registrada!', 4000)
+        } else {
+            errorHandler(error)
+            $("#form-happinessCreate").removeClass('hide');
+            $("div.card-action").removeClass('center-align');
+            $("#loading-happinessCreate").addClass('hide');
+            Materialize.toast('Ocorreu algum erro ao salvar essa felicidade!', 4000)
+        }
+    };
+    xhttp.open("GET", "http://rafaelroberto.com.br/hjAPI/create.php?felicidade="+nota, true);
+    xhttp.send();
+
+    /*setTimeout(
         function()
         {
             db.transaction(function(tx) {tx.executeSql('INSERT INTO happinessNotas (idCategoria,dataModificado,nota) VALUES (?,date("now"),?)',[idCategoria,nota],function(){
@@ -107,10 +139,10 @@ function createNotas(){
                 $("#loading-happinessCreate").addClass('hide');
                 Materialize.toast('Ocorreu algum erro ao salvar essa felicidade!', 4000)
             });});
-        }, 2000);
+        }, 2000);*/
 }
 
-function createCategorias(){
+/*function createCategorias(){
     $("div.card-content").addClass('center-align');
     $("#form-happinessList").addClass('hide');
     $("#loading-happinessList").removeClass('hide');
@@ -219,4 +251,4 @@ function consultarLote(periodo){
 function reloadConsultarLote(){
     $("#select-happinessConsultarLote").removeClass('hide');
     $("#show-happinessConsultarLote").addClass('hide');
-}
+}*/

@@ -12,12 +12,9 @@
             <div class="card-action">
                 <form id="form-happinessCreate" class="left-align">
                     <div class="input-field">
-                        <i class="material-icons prefix">&#xE86E;</i>
-                        <select required id="select-happinessCategorias"></select>
-                    </div>
-                    <div class="input-field">
                         <i class="material-icons prefix">&#xE873;</i>
-                        <textarea required id="input-happinessNotas" maxlength="256" class="materialize-textarea" row="4"></textarea>
+                        <textarea required id="input-happinessNotas" class="materialize-textarea" data-length="144"></textarea>
+                        <label for="input-happinessNotas">Felicidade</label>
                     </div>
                     <a class="waves-effect waves-light btn btn-full deep-purple lighten-3" onclick="createNotas()"><i class="material-icons left">&#xE161;</i>Salvar</a>
                 </form>
@@ -63,3 +60,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('textarea#input-happinessNotas').characterCounter();
+    });
+</script>
